@@ -1,0 +1,28 @@
+.cart h2{
+    text-align: center;
+}
+.cart-item{
+    display: flex;
+    justify-content: center;
+    
+}
+.cart-item-image{
+    border-radius: 50%;
+}
+.cart-item-details{
+    display: flex;
+    justify-content: space-between;
+    gap: 90px;
+}
+.quantity{
+    cursor: pointer;
+    background-color: red;
+    color: #fff;
+    border-radius: 50%;
+}
+.grand-total{
+    text-align: center;
+}
+.quantity-controls{
+   gap: 50px;
+}

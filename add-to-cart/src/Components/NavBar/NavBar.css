@@ -1,0 +1,49 @@
+.navbar{
+    width: 90%;
+    margin: auto;
+}
+nav{
+    display: flex;
+    justify-content: space-between ;
+}
+.logo{
+    width: 50px;
+    margin-left: -40px;
+    cursor: pointer;
+
+}
+.search-bar{
+    height: 150px;
+    margin-top: 80px;
+}
+.search-bar input{
+    height: 25px;
+    padding: 10px;
+    margin: 12px;
+    border-radius: 6px;
+    font-weight: 400;
+    font-size: larger;
+    outline: none;
+    border: darkred 1px solid;
+}
+.search-bar button{
+    padding: 12px;
+    margin: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #FF5800;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.search-bar button:hover{
+    background-color: #FF4500;
+}
+.cart-icon{
+    margin-top: 80px; 
+    cursor: pointer;
+}
+.cart-icon span{
+    color: red;
+}

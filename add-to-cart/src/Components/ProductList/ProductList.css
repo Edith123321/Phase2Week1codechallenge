@@ -1,0 +1,68 @@
+/* ProductList.css */
+
+/* Flexbox container for products */
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Spacing between cards */
+    justify-content: center;
+    padding: 20px;
+    /* Optional background */
+  }
+  
+  /* Card container */
+  .product-card {
+    width: 200px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .product-card:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+  }
+  
+  /* Product image */
+  .product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  
+  /* Product name */
+  .product-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  /* Product price */
+  .product-price {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 15px;
+  }
+  
+  /* Button */
+  .add-to-cart-btn {
+    background-color: #FF5800;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-to-cart-btn:hover {
+    background-color: #FF4500; /* Darker blue on hover */
+  }
+  
