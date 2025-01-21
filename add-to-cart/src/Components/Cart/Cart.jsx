@@ -2,7 +2,6 @@ import React from 'react';
 import './Cart.css';
 
 const Cart = ({ cartItems, setCartItems }) => {
-    // Function to increase quantity
     const handleIncreaseQuantity = (itemId) => {
         setCartItems((prevCartItems) =>
             prevCartItems.map((item) =>
@@ -11,7 +10,6 @@ const Cart = ({ cartItems, setCartItems }) => {
         );
     };
 
-    // Function to decrease quantity
     const handleDecreaseQuantity = (itemId) => {
         setCartItems((prevCartItems) =>
             prevCartItems
@@ -20,19 +18,24 @@ const Cart = ({ cartItems, setCartItems }) => {
                         ? { ...item, quantity: item.quantity - 1 }
                         : item
                 )
-                .filter((item) => item.quantity > 0) // Remove items with 0 quantity
+                .filter((item) => item.quantity > 0)
         );
     };
 
-    // Function to calculate the total price
+    const handleDeleteItem = (itemId) => {
+        setCartItems((prevCartItems) => prevCartItems.filter((item) => item.id !== itemId));
+    };
+
     const calculateTotal = () =>
-        cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+        cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2);
 
     return (
         <div className="cart">
             <h2>Your Cart</h2>
             {cartItems.length === 0 ? (
-                <p>Your cart is empty.</p>
+                <div>
+                    <p>Your cart is empty.</p>
+                </div>
             ) : (
                 <div>
                     {cartItems.map((item) => (
@@ -42,16 +45,16 @@ const Cart = ({ cartItems, setCartItems }) => {
                                     src={item.image}
                                     alt={item.name}
                                     className="cart-item-image"
-                                    style={{ width: '50px', height: '50px' }}
                                 />
                             </div>
                             <div className="cart-item-details">
                                 <h3>{item.name}</h3>
-                                <p>Unit Price: ${item.price}</p>
+                                <p>Unit Price: ${item.price.toFixed(2)}</p>
                                 <div className="quantity-controls">
                                     <button
                                         className="quantity-button"
                                         onClick={() => handleDecreaseQuantity(item.id)}
+                                        title="Decrease quantity"
                                     >
                                         -
                                     </button>
@@ -59,20 +62,24 @@ const Cart = ({ cartItems, setCartItems }) => {
                                     <button
                                         className="quantity-button"
                                         onClick={() => handleIncreaseQuantity(item.id)}
+                                        title="Increase quantity"
                                     >
                                         +
                                     </button>
                                 </div>
-                                <p>Total: ${item.price * item.quantity}</p>
-                                <div className='delete'> 
-                                    <span class="material-symbols-outlined">
-                                        delete
-                                    </span>
+                                <p>Total: ${(item.price * item.quantity).toFixed(2)}</p>
+                                <div
+                                    className="delete"
+                                    onClick={() => handleDeleteItem(item.id)}
+                                    title="Remove item"
+                                    style={{ cursor: "pointer" }}
+                                >
+                                    <span className="material-symbols-outlined">delete</span>
                                 </div>
                             </div>
                         </div>
                     ))}
-                    <h3 className='grand-total'>Grand Total: ${calculateTotal()}</h3>
+                    <h3 className="grand-total">Grand Total: ${calculateTotal()}</h3>
                 </div>
             )}
         </div>
